@@ -4,6 +4,7 @@
 
 <body>
 
+<!-- removed for testing dashboard
 <nav class="navbar navbar-default heady">
   <div class="container heady">
     <div class="floatleft">
@@ -18,6 +19,8 @@
     </div>
   </div>
 </nav>
+-->
+
 
     {{#if currentUser}}
         {{> dashboard}}

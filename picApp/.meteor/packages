@@ -19,7 +19,7 @@ ecmascript              	# Enable ECMAScript2015+ syntax in app code
 autopublish             	# Publish all data to the clients (for prototyping)
 insecure                	# Allow all DB writes from clients (for prototyping)
 				# Following 4 packages are related for accounts
-accounts-base           	# Link to package page: https://atmospherejs.com/meteor/accounts-base
-ian:accounts-ui-bootstrap-3     # ui for accounts that uses bootstrap
 twbs:bootstrap			# bootstrap
+accounts-ui                     # basic account ui
 accounts-password               # package for account password functionality
+
