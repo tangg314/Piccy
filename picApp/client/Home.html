@@ -1,12 +1,13 @@
-<head>
-  <title>Home</title>
-</head>
-
-<body>
-
-<nav class="navbar navbar-default heady">
+<!-- Code in this template appears on all pages -->
+<!-- Need to seperate the nav bar elements in their own templates 
+     Need to link the routes together
+     Need to direct logged in user to route where navbar 'login' 'sign up' buttons arent there
+-->
+<template name="main">
+	<nav class="navbar navbar-default heady">
   <div class="container heady">
     <div class="floatleft">
+      <button id="homePage" type="button" class="btn btn-default butt1" href="home.html">Home</button>
       <button type="button" class="btn btn-default butt1" href="home.html">Pics</button>
       <button type="button" class="btn btn-default butt" href="home.html">News</button>
       <button type="button" class="btn btn-default butt" href="home.html">Upload</button>
@@ -18,31 +19,29 @@
     </div>
   </div>
 </nav>
-
-    {{#if currentUser}}
-        {{> dashboard}}
-    {{else}}
-    {{> loginButtons}}
-    {{/if}}
-</body>
-
-<template name="dashboard">
-    <p>You're logged in.</p>
-    <p><a href="#" class="logout">Logout</a></p>
+<!-- Tells main template where to display content of route -->
+{{>yield}}
+    <hr />
+    <p>Copyright &copy; Gar/ry's and Joseph, 2015.</p>
 </template>
 
-<template name="register">
-    <form>
-        <input type="email" name="registerEmail">
-        <input type="password" name="registerPassword">
-        <input type="submit" value="Register">
-    </form>
+<!-- Template for the home page. -->
+<template name="home">
+	<h1>Welcome to the homepage.</h1>
 </template>
 
+<!-- Template for the account registration page. -->
+<template name="signUp">
+	<h2>Sign Up</h2>
+<!-- Form that contains the text field for email, password, and Sign Up button. -->
+        <form class="signUp">
+            <p>Email: <input type="email" name="email"></p>
+            <p>Password: <input type="password" name="password"></p>
+            <p><input type="submit" value="Sign Up"></p>
+        </form>
+</template>
+
+<!-- Template for the account login page. -->
 <template name="login">
-    <form>
-        <input type="email" name="loginEmail">
-        <input type="password" name="loginPassword">
-        <input type="submit" value="Login">
-    </form>
+	<h2>Login</h2>
 </template>
