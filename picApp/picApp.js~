@@ -13,7 +13,7 @@ Template.signUp.events({
             email: email,
             password: password
         });
-	Router.go('home');
+	Router.go('home');//after signing up, sends user to home page
     }
 });
 }

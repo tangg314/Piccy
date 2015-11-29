@@ -1,29 +1,46 @@
-<!-- Code in this template appears on all pages -->
 <!-- Need to seperate the nav bar elements in their own templates 
      Need to link the routes together
      Need to direct logged in user to route where navbar 'login' 'sign up' buttons arent there
 -->
+
+<!-- Code in this template appears on all pages -->
 <template name="main">
-	<nav class="navbar navbar-default heady">
-  <div class="container heady">
-    <div class="floatleft">
-      <button id="homePage" type="button" class="btn btn-default butt1" href="home.html">Home</button>
-      <button type="button" class="btn btn-default butt1" href="home.html">Pics</button>
-      <button type="button" class="btn btn-default butt" href="home.html">News</button>
-      <button type="button" class="btn btn-default butt" href="home.html">Upload</button>
-      <button type="button" class="btn btn-default butt" href="home.html">Technology</button>
-    </div>
-    <div class="floatright">
-      <button class="btn butt2" href="Login.html">Login</button>
-      <button class="btn butt2" href="SignUp.html">Sign Up</button>
-    </div>
-  </div>
-</nav>
-<!-- Tells main template where to display content of route -->
+<h1>Page Title</h1>
+{{> navigation}}
+<!-- All specific page info displayed after yield point. -->
 {{>yield}}
     <hr />
     <p>Copyright &copy; Gar/ry's and Joseph, 2015.</p>
 </template>
+
+<!-- navigation template -->
+<template name="navigation">
+  <nav class="navbar navbar-default heady">
+    <div class="container heady">
+      <div class="floatleft">
+        <input type="button" class="btn btn-default butt1" onclick="location.href='/home';" value="Home" />
+
+        <input type="button" class="btn btn-default butt1" onclick="location.href='/pics';" value="Pics" />
+
+        <input type="button" class="btn btn-default butt" onclick="location.href='/news';" value="News" />
+
+        <input type="button" class="btn btn-default butt" onclick="location.href='/upload';" value="Upload" />
+
+        <input type="button" class="btn btn-default butt" onclick="location.href='/technology';" value="Technology" />
+
+
+
+      </div>
+
+      <div class="floatright">
+        <input type="button" class="btn btn-default butt2" onclick="location.href='/login';" value="Login" />
+        <input type="button" class="btn btn-default butt2" onclick="location.href='/signUp';" value="Sign Up" />
+      </div>
+    </div>
+</nav>
+
+</template>
+
 
 <!-- Template for the home page. -->
 <template name="home">
@@ -33,14 +50,35 @@
 <!-- Template for the account registration page. -->
 <template name="signUp">
 	<h2>Sign Up</h2>
+<!-- Form that contains the text field for email, password, and Sign Up button. -->
         <form class="signUp">
             <p>Email: <input type="email" name="email"></p>
             <p>Password: <input type="password" name="password"></p>
-            <p><input type="submit" value="SignUp"></p>
+            <p><input type="submit" value="Sign Up"></p>
         </form>
 </template>
 
 <!-- Template for the account login page. -->
 <template name="login">
 	<h2>Login</h2>
+</template>
+
+<!-- Template for the account pics page. -->
+<template name="pics">
+	<h2>Pics HEA</h2>
+</template>
+
+<!-- Template for the account news page. -->
+<template name="news">
+	<h2>News HEA</h2>
+</template>
+
+<!-- Template for the account upload page. -->
+<template name="upload">
+	<h2>Upload HEA</h2>
+</template>
+
+<!-- Template for the account technology page. -->
+<template name="technology">
+	<h2>Tech HEA</h2>
 </template>
