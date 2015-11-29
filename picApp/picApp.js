@@ -12,10 +12,43 @@ Template.signUp.events({
         Accounts.createUser({
             email: email,
             password: password
-        });
-	Router.go('home');//after signing up, sends user to home page
+        }, function(error){
+		//error codes
+    		if(error){
+        		console.log(error.reason); // Output error if sign up fails
+    		} else {
+        		Router.go("home"); // Redirect user if sign up succeeds
+			Meteor.loginWithPassword(email, password);//after signing up auto login
+    		}
+	});
     }
 });
+
+Template.login.events({
+    'submit form': function(event){
+        event.preventDefault();
+        var email = $('[name=email]').val();
+        var password = $('[name=password]').val();
+	//function in .loginWithPassword returns error message in console if login info incorrect
+        Meteor.loginWithPassword(email, password, function(error){    
+		if(error){
+        		console.log(error.reason);//if login info correct stay on login page return console error for now
+    		} else {
+        		Router.go("home");//if login info correct then go to home page, change login/signup to logout
+    		}	
+	});
+    }
+});
+
+//For event logout of Meteor user collections.
+Template.navigation.events({
+    'click .logout': function(event){
+        event.preventDefault();
+        Meteor.logout();
+        Router.go('login');
+    }
+});
+
 }
 
 //Creates the layout that will be common across all pages.
@@ -30,8 +63,6 @@ Router.route('/login');
 //Creates the route to the register page. For example typing: localhost:3000/register
 //will bring you to register page displaying what is in the register template.
 Router.route('/signUp');
-
-
 
 //Creates the route to the pics page. For example typing: localhost:3000/pics
 //will bring you to pics page displaying what is in the pics template.

@@ -1,8 +1,3 @@
-<!-- Need to seperate the nav bar elements in their own templates 
-     Need to link the routes together
-     Need to direct logged in user to route where navbar 'login' 'sign up' buttons arent there
--->
-
 <!-- Code in this template appears on all pages -->
 <template name="main">
 <h1>Page Title</h1>
@@ -13,12 +8,13 @@
     <p>Copyright &copy; Gar/ry's and Joseph, 2015.</p>
 </template>
 
+
 <!-- navigation template -->
 <template name="navigation">
   <nav class="navbar navbar-default heady">
     <div class="container heady">
       <div class="floatleft">
-        <input type="button" class="btn btn-default butt1" onclick="location.href='/home';" value="Home" />
+        <input type="button" class="btn btn-default butt1" onclick="location.href='/';" value="Home" />
 
         <input type="button" class="btn btn-default butt1" onclick="location.href='/pics';" value="Pics" />
 
@@ -29,12 +25,16 @@
         <input type="button" class="btn btn-default butt" onclick="location.href='/technology';" value="Technology" />
 
 
-
       </div>
 
       <div class="floatright">
+<!-- following conditional shows logout button if signed in else shows login/sign up buttons -->
+	{{#if currentUser}}
+        <input type="button" class="btn btn-default logout butt2" onclick="location.href='#';" value="Logout" />
+	{{else}}
         <input type="button" class="btn btn-default butt2" onclick="location.href='/login';" value="Login" />
         <input type="button" class="btn btn-default butt2" onclick="location.href='/signUp';" value="Sign Up" />
+	{{/if}}
       </div>
     </div>
 </nav>
@@ -60,7 +60,12 @@
 
 <!-- Template for the account login page. -->
 <template name="login">
-	<h2>Login</h2>
+    <h2>Login</h2>
+    <form class="login">
+        <p>Email: <input type="email" name="email"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <p><input type="submit" value="Login"></p>
+    </form>
 </template>
 
 <!-- Template for the account pics page. -->
