@@ -2,19 +2,13 @@
 .head1 {
   margin-left: 30px;
 }
-.btn.outline {
-  border: none;
-}
-.btn:focus {
-  outline: 0 none;
-}
 .btn {
   border: 0px transparent none;
 }
 .butt {
   margin-top: 10px;
   height: 50px;
-  width: 100px;
+  width: 85px;
   color: white;
   background-color: #368bc1;
   border-color: black;
@@ -23,7 +17,7 @@
 .butt1 {
   margin-top: 10px;
   height: 50px;
-  width: 100px;
+  width: 90px;
   font-size: 30px;
   color: white;
   background-color: #368bc1;
@@ -31,8 +25,8 @@
 }
 .butt2 {
   margin-top: 10px;
-  height: 40px;
-  width: 80px;
+  height: 50px;
+  width: 70px;
   color: white;
   background-color: #368bc1;
   border-color: black;

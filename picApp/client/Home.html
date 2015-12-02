@@ -29,10 +29,10 @@
       <div class="col-md-3 floatright">
 <!-- following conditional shows logout button if signed in else shows login/sign up buttons -->
 	{{#if currentUser}}
-        <input type="button" class="btn btn-default logout butt2" onclick="location.href='#';" value="Logout" />
+        <input type="button" class="btn logout butt2" onclick="location.href='#';" value="Logout" />
 	{{else}}
-        <input type="button" class="btn btn-default butt2" onclick="location.href='/login';" value="Login" />
-        <input type="button" class="btn btn-default butt2" onclick="location.href='/signUp';" value="Sign Up" />
+        <input type="button" class="btn butt2" onclick="location.href='/login';" value="Login" />
+        <input type="button" class="btn butt2" onclick="location.href='/signUp';" value="Sign Up" />
 	{{/if}}
       </div>
     </div>
@@ -54,7 +54,7 @@
         <form class="signUp">
             <p>Email: <br><input type="email" name="email"></p>
             <p>Password: <br><input type="password" name="password"></p>
-            <p><input type="submit" value="Sign Up"></p>
+            <p><input type="submit" value="Sign Up" style="color: black"></p>
         </form>
   </div>
 </template>
@@ -66,7 +66,7 @@
     <form class="login">
         <p>Email:<br> <input type="email" name="email"></p>
         <p>Password:<br> <input type="password" name="password"></p>
-        <p><input type="submit" value="Login"></p>
+        <p><input type="submit" value="Login" style="color: black"></p>
     </form>
   </div>
 </template>
