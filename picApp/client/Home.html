@@ -1,6 +1,6 @@
 <!-- Code in this template appears on all pages -->
 <template name="main" xmlns="http://www.w3.org/1999/html">
-<h1>Page Title</h1>
+<h1 class="head1">Piccy</h1>
 {{> navigation}}
 <!-- All specific page info displayed after yield point. -->
 {{>yield}}
@@ -13,19 +13,20 @@
 <template name="navigation">
   <div class="container heady">
     <div class="row">
-      <div class="col-md-6 floatleft">
-        <input type="button" class="btn btn-default butt1" onclick="location.href='/';" value="Home" />
+      <div class="col-md-9 floatleft">
+        <a type="button" class="btn butt1" onclick="location.href='/';">
+          <i class="fa fa-home"></i></a>
 
-        <input type="button" class="btn btn-default butt1" onclick="location.href='/pics';" value="Pics" />
+        <input type="button" class="btn butt1" onclick="location.href='/pics';" value="Pics" />
 
-        <input type="button" class="btn btn-default butt" onclick="location.href='/news';" value="News" />
+        <input type="button" class="btn butt" onclick="location.href='/news';" value="News" />
 
-        <input type="button" class="btn btn-default butt" onclick="location.href='/upload';" value="Upload" />
+        <input type="button" class="btn butt" onclick="location.href='/upload';" value="Upload" />
 
-        <input type="button" class="btn btn-default butt" onclick="location.href='/technology';" value="Technology" />
+        <input type="button" class="btn butt" onclick="location.href='/technology';" value="Technology" />
       </div>
 
-      <div class="col-md-6 floatright">
+      <div class="col-md-3 floatright">
 <!-- following conditional shows logout button if signed in else shows login/sign up buttons -->
 	{{#if currentUser}}
         <input type="button" class="btn btn-default logout butt2" onclick="location.href='#';" value="Logout" />
@@ -86,9 +87,9 @@
     <div class="slides"></div>
     <!-- Controls for the borderless lightbox -->
     <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
+    <a class="prev">ï¿½</a>
+    <a class="next">ï¿½</a>
+    <a class="close">ï¿½</a>
     <a class="play-pause"></a>
     <ol class="indicator"></ol>
     <!-- The modal dialog, which will be used to wrap the lightbox content -->
@@ -190,7 +191,7 @@
 <template name="upload">
 	<h2>Upload HEA</h2>
 
-  <button id="upload_widget_opener">Upload Images</button>
+  <button id="upload_widget_opener" style="color: black">Upload Images</button>
 
   <!--Cloudinary Widget, handles picture uploads-->
   <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
@@ -206,15 +207,8 @@
 <template name="technology">
 	<h2>Tech HEA</h2>
   <body>
-<<<<<<< HEAD
-  <p>
-    Cloudinary used to store the pictures <br>
-    Meteor
-  </p>
-=======
   <p>Cloudinary used to store the pictures</p>
   <p>Blue-imp gallery used to display photos</p>
   <p>Meteor</p>
->>>>>>> origin/master
   </body>
 </template>

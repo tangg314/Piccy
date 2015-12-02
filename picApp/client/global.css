@@ -1,4 +1,16 @@
 /* CSS declarations go here */
+.head1 {
+  margin-left: 30px;
+}
+.btn.outline {
+  border: none;
+}
+.btn:focus {
+  outline: 0 none;
+}
+.btn {
+  border: 0px transparent none;
+}
 .butt {
   margin-top: 10px;
   height: 50px;
@@ -36,9 +48,7 @@
 .heady {
   height: 70px;
   width: 100%;
-  text-align:left;
   background-color: #368bc1;
-
 }
 
 .newsHead {
