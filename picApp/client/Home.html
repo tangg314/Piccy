@@ -11,9 +11,9 @@
 
 <!-- navigation template -->
 <template name="navigation">
-  <nav class="navbar navbar-default heady">
-    <div class="container heady">
-      <div class="floatleft">
+  <div class="container heady">
+    <div class="row">
+      <div class="col-md-6 floatleft">
         <input type="button" class="btn btn-default butt1" onclick="location.href='/';" value="Home" />
 
         <input type="button" class="btn btn-default butt1" onclick="location.href='/pics';" value="Pics" />
@@ -25,7 +25,7 @@
         <input type="button" class="btn btn-default butt" onclick="location.href='/technology';" value="Technology" />
       </div>
 
-      <div class="floatright">
+      <div class="col-md-6 floatright">
 <!-- following conditional shows logout button if signed in else shows login/sign up buttons -->
 	{{#if currentUser}}
         <input type="button" class="btn btn-default logout butt2" onclick="location.href='#';" value="Logout" />
@@ -35,7 +35,7 @@
 	{{/if}}
       </div>
     </div>
-</nav>
+  </div>
 
 </template>
 
@@ -114,7 +114,9 @@
 <template name="technology">
 	<h2>Tech HEA</h2>
   <body>
-  <p>Cloudinary used to store the pictures</p>
-  <p>Meteor</p>
+  <p>
+    Cloudinary used to store the pictures <br>
+    Meteor
+  </p>
   </body>
 </template>

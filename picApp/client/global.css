@@ -28,16 +28,17 @@
 }
 
 .floatleft {
-  float: left;
+  text-align: left;
 }
 .floatright {
-  float: right;
+  text-align: right;
 }
 .heady {
   height: 70px;
   width: 100%;
   text-align:left;
   background-color: #368bc1;
+
 }
 
 .newsHead {
