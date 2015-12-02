@@ -40,3 +40,20 @@
   background-color: #368bc1;
 }
 
+.newsHead {
+  text-align:center;
+}
+.loginBox {
+  margin-top: 20px;
+  margin-left: 40%;
+  margin-right: 40%;
+  padding:15px;
+  border-radius:25px;
+  background-color: #368bc1;
+}
+
+.article {
+  alignment: left;
+  border-bottom: solid #368bc1;
+}
+
