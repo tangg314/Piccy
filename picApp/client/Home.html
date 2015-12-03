@@ -1,16 +1,11 @@
 <!-- Code in this template appears on all pages -->
-<head>
-  <script src="picApp/picApp.js" type="text/javascript"></script>
-
-</head>
-
 <template name="main" xmlns="http://www.w3.org/1999/html">
-<h1 class="head1">Piccy</h1>
-{{> navigation}}
-<!-- All specific page info displayed after yield point. -->
-{{>yield}}
-    <hr />
-    <p>Copyright &copy; Gar/ry's and Joseph, 2015.</p>
+  <h1 class="head1">Piccy</h1>
+  {{> navigation}}
+  <!-- All specific page info displayed after yield point. -->
+  {{>yield}}
+  <hr />
+  <p>Copyright &copy; Gar/ry's and Joseph, 2015.</p>
 </template>
 
 
@@ -28,23 +23,8 @@
         <!--Cloudinary Widget, handles picture uploads-->
         <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
         <script type="text/javascript">
-<<<<<<< HEAD
-          var email = "second1";
-=======
-<<<<<<< Updated upstream
-
-
-
-          var email = currentUser;
-
-
-
-
-=======
->>>>>>> Stashed changes
->>>>>>> origin/master
+          var email = "first12";
           document.getElementById("upload_widget_opener").addEventListener("click", function() {
-            alert(email);
             cloudinary.openUploadWidget({ cloud_name: 'tangg414', upload_preset: 'gjudg35a', folder: email},
                 function(error, result) { console.log(error, result) });
           }, false);
@@ -56,13 +36,13 @@
       </div>
 
       <div class="floatright">
-<!-- following conditional shows logout button if signed in else shows login/sign up buttons -->
-	{{#if currentUser}}
+        <!-- following conditional shows logout button if signed in else shows login/sign up buttons -->
+        {{#if currentUser}}
         <input type="button" class="btn logout butt2" onclick="location.href='#';" value="Logout" />
-	{{else}}
+        {{else}}
         <input type="button" class="btn butt2" onclick="location.href='/login';" value="Login" />
         <input type="button" class="btn butt2" onclick="location.href='/signUp';" value="Sign Up" />
-	{{/if}}
+        {{/if}}
       </div>
     </div>
   </div>
@@ -72,7 +52,7 @@
 
 <!-- Template for the home page. -->
 <template name="home">
-	<h2 class="head1">Welcome to Piccy! </h2>
+  <h2 class="head1">Welcome to Piccy!</h2>
   <p>
     This website is intended for users to freely upload and view pictures of all kinds.
   </p>
@@ -81,13 +61,13 @@
 <!-- Template for the account registration page. -->
 <template name="signUp">
   <div class="loginBox">
-	<h2>Sign Up</h2>
-<!-- Form that contains the text field for email, password, and Sign Up button. -->
-        <form class="signUp">
-            <p>Email: <br><input type="email" class="email1" name="email" required></p>
-            <p>Password: <br><input type="password" class="password1" name="password" required></p>
-            <p><input type="submit" value="Sign Up" style="color: black"></p>
-        </form>
+    <h2>Sign Up</h2>
+    <!-- Form that contains the text field for email, password, and Sign Up button. -->
+    <form class="signUp">
+      <p>Email: <br><input type="email" class="email1" name="email" required></p>
+      <p>Password: <br><input type="password" class="password1" name="password" required></p>
+      <p><input type="submit" value="Sign Up" style="color: black"></p>
+    </form>
   </div>
 </template>
 
@@ -96,9 +76,9 @@
   <div class="loginBox">
     <h2>Login</h2>
     <form class="login">
-        <p>Email:<br> <input type="email" class="email1" name="email" required></p>
-        <p>Password:<br> <input type="password" class="password1" name="password" required></p>
-        <p><input type="submit" value="Login" style="color: black"></p>
+      <p>Email:<br> <input type="email" class="email1" name="email" required></p>
+      <p>Password:<br> <input type="password" class="password1" name="password" required></p>
+      <p><input type="submit" value="Login" style="color: black"></p>
     </form>
   </div>
 </template>
@@ -156,29 +136,11 @@
 
   <!-- loads photos-->
   <script>
-<<<<<<< Updated upstream
-
-
-
-
-
     //user email
-<<<<<<< HEAD
-    var email="second1";
-=======
-    var email= currentUser;
-
-
-
-
-
-
-=======
->>>>>>> Stashed changes
->>>>>>> origin/master
+    var email="first12";
     //photos location
-    var dir = "http://res.cloudinary.com/tangg414/image/upload/";
-    var dir2 = "http://res.cloudinary.com/tangg414/image/upload/c_scale,q_50,t_media_lib_thumb,w_100/";
+    var dir = "http://res.cloudinary.com/tangg414/image/upload/" + email + "/";
+    var dir2 = "http://res.cloudinary.com/tangg414/image/upload/c_scale,q_50,t_media_lib_thumb,w_100/" + email + "/";
     //number of photos to load
     var i;
     //image filename
@@ -223,7 +185,7 @@
 
 <!-- Template for the account news page. -->
 <template name="news">
-	<h2 class="head1">News</h2>
+  <h2 class="head1">News</h2>
   <div class="container-fluid articleBox">
     <div class="article">
       <h3>Article 1</h3>
@@ -243,13 +205,13 @@
 
 <!-- Template for the account technology page. -->
 <template name="technology">
-	<h2 class="head1">Tech</h2>
+  <h2 class="head1">Tech</h2>
   <body>
   <p>Cloudinary used to store the pictures</p>
   <p>Blue-imp gallery used to display photos</p>
   <p>Meteor Packages:
-     accounts-ui
-     accounts-password
-     jquery-validation</p>
+    accounts-ui
+    accounts-password
+    jquery-validation</p>
   </body>
 </template>
