@@ -20,12 +20,19 @@
         <input type="button" class="btn butt1" onclick="location.href='/pics';" value="Pics" />
 
         <input type="button" class="btn butt" id="upload_widget_opener" value="Upload" />
-
         <!--Cloudinary Widget, handles picture uploads-->
         <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
         <script type="text/javascript">
+
+
+
+          var email = "joejoethesavage@yahoo.com"
+
+
+
+
           document.getElementById("upload_widget_opener").addEventListener("click", function() {
-            cloudinary.openUploadWidget({ cloud_name: 'tangg414', upload_preset: 'gjudg35a'},
+            cloudinary.openUploadWidget({ cloud_name: 'tangg414', upload_preset: 'gjudg35a', folder: email},
                 function(error, result) { console.log(error, result) });
           }, false);
         </script>
@@ -52,7 +59,7 @@
 
 <!-- Template for the home page. -->
 <template name="home">
-	<h2 class="head1">Welcome to Piccy!</h2>
+	<h2 class="head1">Welcome to Piccy! </h2>
   <p>
     This website is intended for users to freely upload and view pictures of all kinds.
   </p>
@@ -136,8 +143,22 @@
 
   <!-- loads photos-->
   <script>
+
+
+
+
+
+    //user email
+    var email= "joejoethesavage@yahoo.com";
+
+
+
+
+
+
     //photos location
-    var dir = "http://res.cloudinary.com/tangg414/image/upload/";
+    var dir = "http://res.cloudinary.com/tangg414/image/upload/" + email + "/";
+    var dir2 = "http://res.cloudinary.com/tangg414/image/upload/c_scale,q_50,t_media_lib_thumb,w_100/" + email + "/";
     //number of photos to load
     var i;
     //image filename
@@ -160,15 +181,16 @@
     for(i = 0; i < 10 ; i++){
       link1 = dir + filename + i + ".png";
       link2 = dir + filename + i + ".jpg";
+      link3 = dir2 + filename + i + ".jpg";
 
       //if png image exist, load
       if(imageExists(link1) != 404){
-        $("#links").append("<a href='" + link1 + "'><img src='" + link1 + "'></a>");
+        $("#links").append("<a href='" + link1 + "'><img src='" + link3 + "'></a>");
       }
 
       //or if jpg image exist, load
       else if(imageExists(link2) != 404){
-        $("#links").append("<a href='" + link2 + "'><img src='" + link2 + "'></a>");
+        $("#links").append("<a href='" + link2 + "'><img src='" + link3 + "'></a>");
       }
     }
   </script>
@@ -205,6 +227,9 @@
   <body>
   <p>Cloudinary used to store the pictures</p>
   <p>Blue-imp gallery used to display photos</p>
-  <p>Meteor</p>
+  <p>Meteor Packages:
+     accounts-ui
+     accounts-password
+     jquery-validation</p>
   </body>
 </template>

@@ -4,6 +4,10 @@ if (Meteor.isServer) {
 
 //Is Client Starts
 if (Meteor.isClient) {
+
+var currentUser; //Global
+
+
 //event that takes info from sign up fields and creates a new user object in the collection
 //Placed in .isClient as templates aren't defined in server
 Template.signUp.events({
@@ -20,8 +24,12 @@ Template.signUp.events({
     		if(error){
         		console.log(error.reason); // Output error if sign up fails
     		} else {
+
+			currentUser = email;	
+
         		Router.go("home"); // Redirect user if sign up succeeds
 			Meteor.loginWithPassword(email, password);//after signing up auto login
+			
     		}
 	});
 
@@ -41,13 +49,14 @@ Template.login.events({
         		console.log(error.reason);
     		} else {
 			//if login info correct then go to home page, change login/signup to logout
-        		Router.go("home");
+			Router.go("home");
+			currentUser = email;
+			console.log(currentUser);
     		}	
 	});
 
     }
 });
-
 
 //For event logout of Meteor user collections.
 Template.navigation.events({
