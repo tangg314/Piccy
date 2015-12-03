@@ -22,5 +22,5 @@ insecure                	# Allow all DB writes from clients (for prototyping)
 twbs:bootstrap			# bootstrap
 accounts-ui                     # basic account ui
 accounts-password               # package for account password functionality
-
-iron:router
+iron:router                     # meteor package to make multiple pages
+fortawesome:fontawesome

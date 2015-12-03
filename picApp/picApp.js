@@ -1,6 +1,8 @@
 if (Meteor.isServer) {
 }
 
+
+//Is Client Starts
 if (Meteor.isClient) {
 //event that takes info from sign up fields and creates a new user object in the collection
 //Placed in .isClient as templates aren't defined in server
@@ -50,6 +52,8 @@ Template.navigation.events({
 });
 
 }
+//Is Client ends
+
 
 //Creates the layout that will be common across all pages.
 Router.configure({

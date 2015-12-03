@@ -15,9 +15,9 @@ Template.signUp.events({
         }, function(error){
 		//error codes
     		if(error){
-        		console.log(error.reason); // Output error if registration fails
+        		console.log(error.reason); // Output error if sign up fails
     		} else {
-        		Router.go("home"); // Redirect user if registration succeeds
+        		Router.go("home"); // Redirect user if sign up succeeds
 			Meteor.loginWithPassword(email, password);//after signing up auto login
     		}
 	});
