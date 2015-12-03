@@ -145,7 +145,21 @@ Router.route('/signUp');
 
 //Creates the route to the pics page. For example typing: localhost:3000/pics
 //will bring you to pics page displaying what is in the pics template.
-Router.route('/pics');
+Router.route('/pics', {
+    name: 'pics',
+    template: 'pics',
+    data: function(){
+        var currentUser = Meteor.userId();
+    },
+    onBeforeAction: function(){
+        var currentUser = Meteor.userId();
+        if(currentUser){
+            this.next();
+        } else {
+            this.render("login");
+        }
+    }
+});
 
 //Creates the route to the news page. For example typing: localhost:3000/news
 //will bring you to news page displaying what is in the news template.
