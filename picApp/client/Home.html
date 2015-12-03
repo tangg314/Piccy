@@ -13,7 +13,7 @@
 <template name="navigation">
   <div class="container heady">
     <div class="row">
-      <div class="col-md-9 floatleft">
+      <div class="floatleft">
         <a type="button" class="btn butt1" onclick="location.href='/';">
           <i class="fa fa-home"></i></a>
 
@@ -35,7 +35,7 @@
         <input type="button" class="btn butt" onclick="location.href='/technology';" value="Technology" />
       </div>
 
-      <div class="col-md-3 floatright">
+      <div class="floatright">
 <!-- following conditional shows logout button if signed in else shows login/sign up buttons -->
 	{{#if currentUser}}
         <input type="button" class="btn logout butt2" onclick="location.href='#';" value="Logout" />
