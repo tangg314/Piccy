@@ -9,6 +9,7 @@ if (Meteor.isClient) {
 Template.signUp.events({
     'submit form': function(event){
         event.preventDefault();
+/*
         var email = $('[name=email]').val();
         var password = $('[name=password]').val();
         Accounts.createUser({
@@ -23,24 +24,30 @@ Template.signUp.events({
 			Meteor.loginWithPassword(email, password);//after signing up auto login
     		}
 	});
+*/
     }
 });
 
 Template.login.events({
     'submit form': function(event){
         event.preventDefault();
+/*
         var email = $('[name=email]').val();
         var password = $('[name=password]').val();
 	//function in .loginWithPassword returns error message in console if login info incorrect
         Meteor.loginWithPassword(email, password, function(error){    
 		if(error){
-        		console.log(error.reason);//if login info correct stay on login page return console error for now
+			//if login info correct stay on login page return console error for now
+        		console.log(error.reason);
     		} else {
-        		Router.go("home");//if login info correct then go to home page, change login/signup to logout
+			//if login info correct then go to home page, change login/signup to logout
+        		Router.go("home");
     		}	
 	});
+*/
     }
 });
+
 
 //For event logout of Meteor user collections.
 Template.navigation.events({
@@ -49,6 +56,88 @@ Template.navigation.events({
         Meteor.logout();
         Router.go('login');
     }
+});
+
+$.validator.setDefaults({
+    rules: {
+        email: {
+            required: true,
+            email: true
+        },
+        password: {
+            required: true,
+            minlength: 6
+        }
+    },
+    messages: {
+        email: {
+            required: "You must enter an email address.",
+            email: "You've entered an invalid email address."
+        },
+        password: {
+            required: "You must enter a password.",
+            minlength: "Your password must be at least {0} characters."
+        }
+    }
+});
+
+//Login validation next three
+Template.login.onCreated(function(){
+    console.log("The 'login' template was just created.");
+});
+
+Template.login.onRendered(function(){
+    $('.login').validate({
+        submitHandler: function(event){
+            var email = $('[name=email]').val();
+            var password = $('[name=password]').val();
+            Meteor.loginWithPassword(email, password, function(error){
+                if(error){
+                    console.log(error.reason);
+                } else {
+                    var currentRoute = Router.current().route.getName();
+                    if(currentRoute == "login"){
+                        Router.go("home");
+                    }
+                }
+            });
+        }
+    });
+});
+
+Template.login.onDestroyed(function(){
+    console.log("The 'signUp' template was just destroyed.");
+});
+
+//signUp validation next three
+Template.signUp.onCreated(function(){
+    console.log("The 'signUp' template was just created.");
+});
+
+Template.signUp.onRendered(function(){
+    console.log("The 'signUp' template was just rendered.");
+    $('.signUp').validate({
+        submitHandler: function(event){
+        var email = $('[name=email]').val();
+        var password = $('[name=password]').val();
+        Accounts.createUser({
+            email: email,
+            password: password
+        }, function(error){
+		//error codes
+    		if(error){
+        		console.log(error.reason); // Output error if sign up fails
+    		} else {
+        		Router.go("home"); // Redirect user if sign up succeeds
+			Meteor.loginWithPassword(email, password);//after signing up auto login
+    		}
+	});
+        }  
+    });
+});
+
+Template.signUp.onDestroyed(function(){
+    console.log("The 'signUp' template was just destroyed.");
 });
 
 }
