@@ -138,6 +138,7 @@
   <script>
     //photos location
     var dir = "http://res.cloudinary.com/tangg414/image/upload/";
+    var dir2 = "http://res.cloudinary.com/tangg414/image/upload/c_scale,q_50,t_media_lib_thumb,w_100/";
     //number of photos to load
     var i;
     //image filename
@@ -160,15 +161,16 @@
     for(i = 0; i < 10 ; i++){
       link1 = dir + filename + i + ".png";
       link2 = dir + filename + i + ".jpg";
+      link3 = dir2 + filename + i + ".jpg";
 
       //if png image exist, load
       if(imageExists(link1) != 404){
-        $("#links").append("<a href='" + link1 + "'><img src='" + link1 + "'></a>");
+        $("#links").append("<a href='" + link1 + "'><img src='" + link3 + "'></a>");
       }
 
       //or if jpg image exist, load
       else if(imageExists(link2) != 404){
-        $("#links").append("<a href='" + link2 + "'><img src='" + link2 + "'></a>");
+        $("#links").append("<a href='" + link2 + "'><img src='" + link3 + "'></a>");
       }
     }
   </script>
