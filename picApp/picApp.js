@@ -10,13 +10,11 @@ var currentUser; //Global
 
 //event that takes info from sign up fields and creates a new user object in the collection
 //Placed in .isClient as templates aren't defined in server
-
-var email;
 Template.signUp.events({
     'submit form': function(event){
         event.preventDefault();
 
-        email = $('[name=email]').val();
+        var email = $('[name=email]').val();
         var password = $('[name=password]').val();
         Accounts.createUser({
             email: email,
@@ -34,7 +32,6 @@ Template.signUp.events({
 			
     		}
 	});
-        console.log(email);
 
     }
 });
@@ -43,7 +40,7 @@ Template.login.events({
     'submit form': function(event){
         event.preventDefault();
 
-        email = $('[name=email]').val();
+        var email = $('[name=email]').val();
         var password = $('[name=password]').val();
 	//function in .loginWithPassword returns error message in console if login info incorrect
         Meteor.loginWithPassword(email, password, function(error){    
@@ -61,11 +58,6 @@ Template.login.events({
     }
 });
 
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
 //For event logout of Meteor user collections.
 Template.navigation.events({
     'click .logout': function(event){
